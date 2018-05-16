@@ -15,20 +15,20 @@ public class InMemoryTimeEntryRepository implements TimeEntryRepository {
     }
 
     @Override
-    public TimeEntry find(long id) {
+    public TimeEntry find(Long id) {
         TimeEntry timeEntry = timeEntries.get(id);
         return timeEntry;
     }
 
     @Override
-    public TimeEntry update(long id, TimeEntry timeEntry) {
+    public TimeEntry update(Long id, TimeEntry timeEntry) {
         TimeEntry timeEntryUpdate = new TimeEntry(id, timeEntry.getProjectId(), timeEntry.getUserId(), timeEntry.getDate(), timeEntry.getHours());
         timeEntries.replace(id, timeEntryUpdate);
         return timeEntryUpdate;
     }
 
     @Override
-    public void delete(long id) {
+    public void delete(Long id) {
         timeEntries.remove(id);
     }
 
